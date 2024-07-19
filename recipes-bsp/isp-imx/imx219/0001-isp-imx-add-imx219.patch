@@ -10,7 +10,7 @@
 +			},
 +
 +			"?dewarpType": "LENS_CORRECTION, FISHEYE_EXPAND, SPLIT_SCREEN",
-+			"dewarpType": "FISHEYE_DEWARP",
++			"dewarpType": "LENS_CORRECTION",
 +
 +			"scale": {
 +				"roix"   : 0,
@@ -24,7 +24,7 @@
 +				"vertical_line_down": 960
 +			},
 +
-+			"bypass" : false,
++			"bypass" : true,
 +			"hflip"  : false,
 +			"vflip"  : false,
 +
