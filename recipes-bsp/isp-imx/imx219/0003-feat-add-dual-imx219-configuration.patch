@@ -26,7 +26,7 @@ index b8ca8c4..9298b0b 100755
 -
 +                 dual_imx219_1080p60 )
 +                         MODULES=("imx219" "${MODULES[@]}")
-+                         RUN_OPTION="DUAL"
++                         RUN_OPTION="DUAL_CAMERA"
 +                         CAM_NAME="imx219"
 +                         DRV_FILE="imx219.drv"
 +                         MODE_FILE="IMX219_MODES.txt"
