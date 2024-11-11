@@ -1,0 +1,32 @@
+From 36b3adc58e319343c503df7940a9f7c658a64d1a Mon Sep 17 00:00:00 2001
+From: Manuel Rota <manuel.rota@kalpa.it>
+Date: Thu, 7 Nov 2024 16:34:49 +0100
+Subject: [PATCH] fix: make run.sh runnable from everywhere
+
+---
+ imx/run.sh | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/imx/run.sh b/imx/run.sh
+index b56e048..5fb4b32 100755
+--- a/imx/run.sh
++++ b/imx/run.sh
+@@ -203,6 +203,9 @@ load_modules () {
+ 	done
+ }
+ 
++# everything in this script is expecting to be run here
++pushd $RUN_SCRIPT_PATH > /dev/null
++
+ write_default_mode_files
+ 
+ echo "Trying configuration \"$ISP_CONFIG\"..."
+@@ -368,6 +371,8 @@ fi
+ echo "Starting isp_media_server with configuration file $RUN_OPTION"
+ ./isp_media_server $RUN_OPTION
+ 
++popd > /dev/null
++
+ # this should now work
+ # gst-launch-1.0 -v v4l2src device=/dev/video0 ! "video/x-raw,format=YUY2,width=1920,height=1080" ! queue ! imxvideoconvert_g2d ! waylandsink
+ # gst-launch-1.0 -v v4l2src device=/dev/video0 ! "video/x-raw,format=YUY2,width=3840,height=2160" ! queue ! imxvideoconvert_g2d ! waylandsink
