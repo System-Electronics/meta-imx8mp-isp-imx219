@@ -25,3 +25,10 @@ gst-launch-1.0 -e -v \
         qtmux ! \
         filesink location="output.mp4"
 ```
+
+### Hailo compatibility
+
+Since `v4.16.0`, Hailo has introduced the new `hailonetv2` element, streamlined as `hailonet` in `v4.17.0`,
+which uses a zero-copy mechanism that does **not** work when used IMX ISP devices with `v4l2src`.
+
+To work around this issue, please use the legacy `synchailonet` element if needed.
